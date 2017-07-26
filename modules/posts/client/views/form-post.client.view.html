@@ -1,0 +1,64 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.post._id ? 'Edit Post' : 'New Post'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.postForm" class="form-horizontal" ng-submit="vm.save(vm.form.postForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.post.title" id="title" class="form-control" placeholder="Title" required>          
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="body">Body</label>
+          <textarea name="body" type="text" ng-model="vm.post.body" id="body" class="form-control" placeholder="Body" required></textarea>          
+        </div>      
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.post.tags" id="tags" class="form-control" placeholder="Tags" required>          
+        </div>
+        <!-- Varietal -->
+        <div class="form-group" show-errors>
+          <label class="control-label" for="varietal">Varietal</label>
+          <select name="varietal" ng-model="vm.post.varietal" id="varietal" class="form-control" required> 
+            <option value=""> ---Please select ---</option> 
+            <option value="Riesling">Riesling</option>
+            <option value="Sauvignon Blanc">Sauvigon Blanc</option>
+            <option value="Chardonnay">Chardonnay</option> 
+            <option value="Pinot Noir">Pinot Noir</option>
+            <option value="Merlot">Merlot</option>
+            <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+          </select>
+        </div>
+        <!--Region-->
+        <div class="form-group" show-errors>
+          <label class="control-label" for="region">Region</label>
+          <select name="region" ng-model="vm.post.region" id="region" class="form-control" required> 
+            <option value=""> ---Please select ---</option> 
+            <option value="North America">North America</option>
+            <option value="Europe">Europe</option>
+            <option value="South America">South America</option> 
+            <option value="Oceania">Oceania</option>
+          </select>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="rating">Rating</label>
+          <select name="rating" ng-model="vm.post.rating" id="rating" class="form-control" required> 
+            <option value=""> ---Please select ---</option> 
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option> 
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.post._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
